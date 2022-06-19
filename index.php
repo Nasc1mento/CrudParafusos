@@ -14,7 +14,7 @@
     <form action="login.php" method="POST">
         <input type="text" name="email" placeholder="Email"> 
         <input type="password" name="passwd" placeholder="senha">
-        <input type="submit">
+        <input type="submit" value="Entrar">
     </form>
     <h1>Cadastrar-se</h1>
     <form action="add-vendor.php" method="POST">
@@ -22,7 +22,7 @@
         <input type="text" name="email" placeholder="email">
         <input type="number" name="cpf" placeholder="cpf">
         <input type="password" name="passwd" placeholder="senha">
-        <input type="submit">
+        <input type="submit" value="Concluir">
     </form>
 </body>
 </html>

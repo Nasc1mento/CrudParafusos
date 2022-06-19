@@ -1,0 +1,21 @@
+table,tr,td{
+
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+form {
+    margin-top: .5em;
+}
+
+
+fieldset {
+    border: 2px solid black;
+    box-shadow:  black;
+}
+
+legend {
+    background: rgb(206, 184, 204);
+
+}

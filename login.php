@@ -15,7 +15,7 @@
 
     foreach ($users as $user){
         
-        if($email == $user[1] && $passwd = trim($user[2])){
+        if($email == $user[1] && $passwd == trim($user[2])){
             $_SESSION['username'] = $user[0];
             $_SESSION['name'] = $user[2];
         }

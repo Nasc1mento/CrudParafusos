@@ -7,9 +7,5 @@
         exit();
     }
 
-    header('location: lampada/');
+    header('location: parafuso/');
 ?>
-
-
-<h1>Seja bem vindo <?= $_SESSION['name']?> (<?=$_SESSION['username']?>)</h1>
-<a href="logout.php">Sair</a>
