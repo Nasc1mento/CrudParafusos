@@ -16,13 +16,6 @@
         <input type="password" name="passwd" placeholder="senha">
         <input type="submit" value="Entrar">
     </form>
-    <h1>Cadastrar-se</h1>
-    <form action="add-vendor.php" method="POST">
-        <input type="text" name="user" placeholder="username">
-        <input type="text" name="email" placeholder="email">
-        <input type="number" name="cpf" placeholder="cpf">
-        <input type="password" name="passwd" placeholder="senha">
-        <input type="submit" value="Concluir">
-    </form>
+    <a href="register.php">Clique aqui para registrar-se</a>
 </body>
 </html>

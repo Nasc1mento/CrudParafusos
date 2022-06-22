@@ -1,21 +1,34 @@
 <?php
 
-    session_start();
+    include 'config.php';
+    
 
-    define('DATA_SOURCE','users.csv');
-
-
-    $nome = $_POST['user'];
+    $nome = $_POST['name'];
     $email = $_POST['email'];
-    $passwd = $_POST['passwd'];
+    $password = $_POST['passwd'];
+    $confirm_password = $_POST['confirm_password'];
     $cpf = $_POST['cpf'];
 
-    $fp = fopen(DATA_SOURCE, 'a');
+    
 
-    $row = implode(',',[$nome,$email,$passwd,$cpf]);
-    fwrite($fp, $row.PHP_EOL);
+    if ($password == $confirm_password) {
+        unset($_SESSION['name']);
+        unset($_SESSION['email']);
+        unset($_SESSION['cpf']);
+
+        $ret = $pdo->query("
+            INSERT INTO WCR_USER (USR_NAME,USR_EMAIL,USR_PASSWD,USR_CPF)
+            VALUES ('$name','$email','$password','$cpf');
+        ");
+
+        header('location: index.php');
+    }else {
+        $_SESSION['name'] = $nome;
+        $_SESSION['email'] = $email;
+        $_SESSION['cpf'] = $cpf;
+        header('location: register.php?err=0');
+    }
 
 
-
-    header('location: index.php');
+    
     
