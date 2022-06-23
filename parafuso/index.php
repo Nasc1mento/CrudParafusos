@@ -1,14 +1,12 @@
 
 <?php
+
     include 'config.php';
 
-    $data = [];
-    $fp = fopen(DATA_SOURCE,'r');
-    while ($row = fgets($fp)) {
-        $data[] = explode(',',$row);
-    }
+    $ret = $pdo->query('SELECT * FROM WCR_BOLTS');
+    $data = $ret->fetchAll();
 
-    // var_dump($data);
+    var_dump($data);
 ?>
 
 <!DOCTYPE html>
@@ -23,16 +21,16 @@
 <body>
     <h1>Parafusos de <?=$_SESSION['username'] ?></h1>
     <table>
-    <?php foreach ($data as $i => $row): ?>
-        <?php if (trim($row[4]) == $_SESSION['username']): ?>
+    <?php foreach ($data as $row): ?>
+        <?php if ($row['BLT_USR_ID'] == $_SESSION['user_id']): ?>
             <tr>
-                <td><?= $i ?></td>
-                <td><?=$row[0]?></td>
-                <td><?=$row[1]?></td>
-                <td><?=$row[2]?></td>
-                <td><?=$row[3]?></td>
+                <td><?= $row['BLT_ID']?></td>
+                <td><?=$row['BLT_BRAND']?></td>
+                <td><?=$row['BLT_TYPE']?></td>
+                <td><?=$row['BLT_DIAMETER']?></td>
+                <td><?=$row['BLT_LENGTH']?></td>
                 <td>
-                    <a href="delete.php?linha=<?= $i ?>">remover</a>
+                    <a href="delete.php?linha=<?= $row['BLT_ID'] ?>">remover</a>
                 </td>
             </tr>
         <?php endif?>

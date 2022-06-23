@@ -3,25 +3,10 @@
 
 
     include 'config.php';
+    
     $linha = $_GET['linha'];
 
-    $data = [];
+    $ret = $pdo->query("DELETE FROM WCR_BOLTS WHERE BLT_ID = $linha");
+    
 
-    $fp = fopen(DATA_SOURCE,'r');
-    while ($row = fgets($fp)) {
-        $data[] = $row;
-    }
-
-    $fp = fopen(DATA_SOURCE,'w');
-    foreach($data as $idx => $row) {
-        if ($idx == $linha) {
-            continue;
-        }
-        fwrite($fp,$row);
-
-        // if ($idx != $linha) {
-        //     fwrite($fp, $row);
-        // }
-    }
-
-        header('location: index.php');
+    header('location: index.php');

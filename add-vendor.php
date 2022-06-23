@@ -3,7 +3,7 @@
     include 'config.php';
     
 
-    $nome = $_POST['name'];
+    $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['passwd'];
     $confirm_password = $_POST['confirm_password'];
@@ -23,7 +23,7 @@
 
         header('location: index.php');
     }else {
-        $_SESSION['name'] = $nome;
+        $_SESSION['name'] = $name;
         $_SESSION['email'] = $email;
         $_SESSION['cpf'] = $cpf;
         header('location: register.php?err=0');

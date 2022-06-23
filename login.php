@@ -1,29 +1,23 @@
 <?php
 
-    session_start();
+    include 'config.php';
 
     $username = $_POST['user'];
     $passwd = $_POST["passwd"];
     $email = $_POST['email'];
 
-
-    // $users = [];
-    // $fp = fopen('users.csv','r');
-    // while ($row = fgets($fp)) {
-    //     $users[] = explode(',',$row);
-    // }
-
-    $ret = $pdo->query('SELECT * FROM WCR_USR');
-    $usets = $ret->fetchAll();
+    $ret = $pdo->query('SELECT * FROM WCR_USER');
+    $users = $ret->fetchAll();
 
     foreach ($users as $user){
         
-        if($email == $user[1] && $passwd == trim($user[2])){
-            $_SESSION['username'] = $user['email'];
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['user']
+        //confere se o email e a senha conferem
+        if($email == $user['USR_EMAIL'] && $passwd == $user['USR_PASSWD']){
+            $_SESSION['username'] = $user['USR_EMAIL'];
+            $_SESSION['name'] = $user['USR_NAME'];
+            $_SESSION['user_id'] = $user['USR_ID'];
         }
     }
 
 
-    header('location: home.php');
+    header('location: home.php'); //re

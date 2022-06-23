@@ -1,4 +1,10 @@
 <?php
     session_start();
-    define('DATA_SOURCE', 'data.csv');
-?>
+    
+    $dsn = 'mysql:host=127.0.0.1;dbname=WEB1_CRUD;port=3306';
+    $pdo = new PDO($dsn, 'root', 'yourpassword');
+    
+
+
+
+
