@@ -32,6 +32,10 @@
                 <td>
                     <a href="delete.php?linha=<?= $row['BLT_ID'] ?>">remover</a>
                 </td>
+                <td>
+                    <a href="edit.php?idparafuso=<?=$row['BLT_ID']?>">editar</a>
+                </td>
+                
             </tr>
         <?php endif?>
     <?php endforeach ?>
