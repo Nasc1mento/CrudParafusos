@@ -44,7 +44,6 @@
                     <option value="sextavado">sextavado</option>
                     <option value="phillips">phillips</option>
                     <option value="allen">allen</option>
-                    <option value="comprimento">comprimento</option>
                 </select>
                 <input type="number" name="diametro" placeholder="diametro">
                 <input type="number" name="comprimento"placeholder="comprimento">
