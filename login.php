@@ -6,7 +6,7 @@
     $passwd = $_POST["passwd"];
     $email = $_POST['email'];
 
-    $ret = $pdo->prepare('SELECT * FROM WCR_USER');
+    $ret = $pdo->prepare('SELECT * FROM WCR_USERS');
     $ret->execute();
     $users = $ret->fetchAll();
 

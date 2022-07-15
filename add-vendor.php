@@ -16,7 +16,7 @@
         unset($_SESSION['email']);
         unset($_SESSION['cpf']);
 
-        $ret = $pdo->prepare("INSERT INTO WCR_USER (USR_NAME,USR_EMAIL,USR_PASSWD,USR_CPF) VALUES (?, ?, ?, ?);");
+        $ret = $pdo->prepare("INSERT INTO WCR_USERS (USR_NAME,USR_EMAIL,USR_PASSWD,USR_CPF) VALUES (?, ?, ?, ?);");
 
         $ret->bindParam(1, $name);
         $ret->bindParam(2, $email);
