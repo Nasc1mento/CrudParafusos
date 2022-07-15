@@ -3,10 +3,11 @@
 
     include 'config.php';
 
-    $ret = $pdo->query('SELECT * FROM WCR_BOLTS');
+    $ret = $pdo->prepare('SELECT * FROM WCR_BOLTS');
+    $ret->execute();
+    
     $data = $ret->fetchAll();
 
-    var_dump($data);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Cadastro de parafusos</title>
 </head>
 <body>
     <h1>Parafusos de <?=$_SESSION['username'] ?></h1>
@@ -30,10 +31,10 @@
                 <td><?=$row['BLT_DIAMETER']?></td>
                 <td><?=$row['BLT_LENGTH']?></td>
                 <td>
-                    <a href="delete.php?linha=<?= $row['BLT_ID'] ?>">remover</a>
+                    <a href="delete.php?id_parafuso=<?= $row['BLT_ID'] ?>">remover</a>
                 </td>
                 <td>
-                    <a href="edit.php?idparafuso=<?=$row['BLT_ID']?>">editar</a>
+                    <a href="edit.php?id_parafuso=<?=$row['BLT_ID']?>">editar</a>
                 </td>
                 
             </tr>

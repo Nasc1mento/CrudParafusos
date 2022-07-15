@@ -2,8 +2,11 @@
 
     include 'config.php';
     
-    $idparafuso = $_GET['idparafuso'];
-    $ret = $pdo->query('SELECT * FROM WCR_BOLTS WHERE BLT_ID='.$idparafuso);
+    $id_parafuso = $_GET['id_parafuso'];
+    $ret = $pdo->prepare("SELECT * FROM WCR_BOLTS WHERE BLT_ID=:id_parafuso");
+    $ret->bindValue(":id_parafuso", $id_parafuso);
+    $ret->execute();
+
     $data = $ret->fetchAll();
 
     foreach ($data as $row){
@@ -12,7 +15,7 @@
         $comprimento = $row['BLT_LENGTH'];
 
     }
-    var_dump($data);
+   
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Editar parafuso</title>
 </head>
 
 
@@ -37,9 +40,12 @@
                 </select>
                 <input type="number" name="diametro" placeholder="diametro" value=<?=$diametro?>>
                 <input type="number" name="comprimento"placeholder="comprimento" value=<?=$comprimento?>>
+                <input type="hidden" name="id_parafuso" value=<?=$id_parafuso?>>
                 <input type="submit" value="adicionar">
             </fieldset>
         </form>
-        <a href="/logout.php">Sair</a>
+        <a href="index.php">Voltar</a>
+        <br>
+        <a href="/logout.php">Sair da conta</a>
 </body>
 </html>

@@ -16,6 +16,6 @@
         <input type="password" name="passwd" placeholder="senha">
         <input type="submit" value="Entrar">
     </form>
-    <a href="register.php">Clique aqui para registrar-se</a>
+    <p>Não está registrado? <a href="register.php">Clique aqui</a></p>
 </body>
 </html>

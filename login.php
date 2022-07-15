@@ -6,7 +6,8 @@
     $passwd = $_POST["passwd"];
     $email = $_POST['email'];
 
-    $ret = $pdo->query('SELECT * FROM WCR_USER');
+    $ret = $pdo->prepare('SELECT * FROM WCR_USER');
+    $ret->execute();
     $users = $ret->fetchAll();
 
     foreach ($users as $user){
@@ -20,4 +21,4 @@
     }
 
 
-    header('location: home.php'); //re
+    header('location: home.php');

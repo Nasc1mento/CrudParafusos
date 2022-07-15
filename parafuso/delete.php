@@ -1,12 +1,12 @@
 <?php
 
-
-
     include 'config.php';
     
-    $linha = $_GET['linha'];
+    $id_parafuso = $_GET['id_parafuso'];
 
-    $ret = $pdo->query("DELETE FROM WCR_BOLTS WHERE BLT_ID = $linha");
+    $ret = $pdo->prepare("DELETE FROM WCR_BOLTS WHERE BLT_ID = :id_parafuso");
+    $ret->bindParam(":id_parafuso", $id_parafuso);
+    $ret->execute();
     
 
     header('location: index.php');
