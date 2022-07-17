@@ -2,7 +2,7 @@
 
 ## Repositório criado para salvar o progresso da disciplina de Web 1 do curso de Sistemas para Internet do IFPE - Campus Igarassu
 
-### É um cadastro com login e um crud de parafusos.
+### É um sistema com login e cadastro de usuários/ parafusos.
 
 #### Funcionaidades
 
