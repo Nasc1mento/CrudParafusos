@@ -19,6 +19,7 @@
 - Adicionar parafuso
 - Remover parafuso
 - Editar parafuso
+- Ver parafusos cadastrados
 
 
 
